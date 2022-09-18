@@ -1,7 +1,7 @@
 package org.example;
 /*
-Описать метод float getPrice(City city), возвращающий стоимость перевозки для нашего транспорта.
-В обоих классах описать конструкторы с указанными свойствами в указанном порядке и геттеры-сеттеры всех свойств.
+Описать три класса Ship, Plane и Truck, со свойствами и методами, аналогичными транспорту.
+Для корабля и самолета при невозможности перевозки в указанный город метод float getPrice(City city) должен возвращать 0.
  */
 
 public class Transport {
@@ -10,7 +10,6 @@ public class Transport {
     private int capacity;       //грузоподъемность
     private int speed;          //скорость
     private float costOfKm;     //стоимость за километр
-    private float costPerTrip;       //стоимость за поездку
 
 
     public Transport(String name, int capacity, int speed, float costOfKm) {
@@ -45,16 +44,12 @@ public class Transport {
         this.costOfKm = costOfKm;
     }
 
-    public float getCostPerTrip() {
-        return costPerTrip;
-    }
-
-    public void setCostPerTrip(float costPerTrip) {
-        this.costPerTrip = costPerTrip;
-    }
-
     public float getPrice(City city){
         float getCostPerTrip = getCostOfKm() * city.getDistanceKm();
+        if (city.isHasAirport() == false | city.isOnWater() == false) {
+            getCostPerTrip = 0f;
+        }
         return getCostPerTrip;
     }
 }
+//Для корабля и самолета при невозможности перевозки в указанный город метод float getPrice(City city) должен возвращать 0.

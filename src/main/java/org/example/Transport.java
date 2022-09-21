@@ -12,6 +12,7 @@ public class Transport {
     private float costOfKm;     //стоимость за километр
 
 
+
     public Transport(String name, int capacity, int speed, float costOfKm) {
         this.name = name;
         this.capacity = capacity;
@@ -46,10 +47,9 @@ public class Transport {
 
     public float getPrice(City city){
         float getCostPerTrip = getCostOfKm() * city.getDistanceKm();
-        if (city.isHasAirport() == false | city.isOnWater() == false) {
-            getCostPerTrip = 0f;
-        }
         return getCostPerTrip;
     }
+
+
 }
 //Для корабля и самолета при невозможности перевозки в указанный город метод float getPrice(City city) должен возвращать 0.

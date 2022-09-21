@@ -6,19 +6,17 @@ public class City {
     private int distanceKm;  //расстояние
     private boolean hasAirport;
     private boolean isOnWater;
-
-
-
-    public City(String name){
-        this(name, false, true,0); // (!)вот тут не нравится, что дистанция 0
-    }
-    public City(String name, boolean hasAirport, boolean isOnWater, int distanceKm) {
+    public City(String name, int distanceKm) {
         this.name = name;
-        this.hasAirport = hasAirport;
-        this.isOnWater = isOnWater;
         this.distanceKm = distanceKm;
     }
 
+    public City(String name, int distanceKm, boolean hasAirport, boolean isOnWater) {
+        this.name = name;
+        this.distanceKm = distanceKm;
+        this.hasAirport = hasAirport;
+        this.isOnWater = isOnWater;
+    }
     public String getName() {
         return name;
     }
@@ -31,7 +29,8 @@ public class City {
     public void setDistanceKm(int distanceKm) {
         this.distanceKm = distanceKm;
     }
-    public boolean isHasAirport() {
+
+    public boolean hasAirport() {
         return hasAirport;
     }
 
@@ -43,7 +42,7 @@ public class City {
         return isOnWater;
     }
 
-    public void setOnWater(boolean onWater) {
-        isOnWater = onWater;
+    public void setIsOnWater(boolean isOnWater) {
+        this.isOnWater = isOnWater;
     }
 }

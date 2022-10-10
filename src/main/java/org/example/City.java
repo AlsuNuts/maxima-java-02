@@ -6,10 +6,6 @@ public class City {
     private int distanceKm;  //расстояние
     private boolean hasAirport;
     private boolean isOnWater;
-    public City(String name, int distanceKm) {
-        this.name = name;
-        this.distanceKm = distanceKm;
-    }
 
     public City(String name, int distanceKm, boolean hasAirport, boolean isOnWater) {
         this.name = name;
@@ -17,6 +13,13 @@ public class City {
         this.hasAirport = hasAirport;
         this.isOnWater = isOnWater;
     }
+    public City(String name, int distanceKm) {
+        this.name = name;
+        this.distanceKm = distanceKm;
+        this.hasAirport = false;
+        this.isOnWater = true;
+    }
+
     public String getName() {
         return name;
     }

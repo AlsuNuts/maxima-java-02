@@ -1,17 +1,10 @@
 package org.example;
-/*
-Описать три класса Ship, Plane и Truck, со свойствами и методами, аналогичными транспорту.
-Для корабля и самолета при невозможности перевозки в указанный город метод float getPrice(City city) должен возвращать 0.
- */
 
-public class Transport {
-
+public abstract class Transport implements Repairable {
     private String name;       //название транспорта
     private int capacity;       //грузоподъемность
     private int speed;          //скорость
     private float costOfKm;     //стоимость за километр
-
-
 
     public Transport(String name, int capacity, int speed, float costOfKm) {
         this.name = name;
@@ -45,11 +38,25 @@ public class Transport {
         this.costOfKm = costOfKm;
     }
 
-    public float getPrice(City city){
-        float getCostPerTrip = getCostOfKm() * city.getDistanceKm();
-        return getCostPerTrip;
+    abstract float getPrice(City city);
+    public void startRepair() {
+
     }
 
+    @Override
+    public void finishRepair() {
+
+    }
+
+    @Override
+    public boolean isRepairing() {
+
+        return false;
+    }
 
 }
-//Для корабля и самолета при невозможности перевозки в указанный город метод float getPrice(City city) должен возвращать 0.
+
+
+
+//float getCostPerTrip = getCostOfKm() * city.getDistanceKm();
+//        return getCostPerTrip;

@@ -47,7 +47,7 @@ public class Logistics {
         return profitTransport;
     }
     public boolean isShippingAvailable(City city, Transport transport, int weight, int hours) {
-        return !transport.isRepairing() & (transport.getCapacity() >= weight) & (city.getDistanceKm() / transport.getSpeed() <= hours) & transport.getCostOfKm() * city.getDistanceKm() != 0;
+        return (!transport.isRepairing()) & (transport.getCapacity() >= weight) & (city.getDistanceKm() / transport.getSpeed() <= hours) & (transport.getPrice(city) != 0);
     }
 
 }

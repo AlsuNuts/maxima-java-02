@@ -45,6 +45,7 @@ public abstract class Transport implements Repairable {
     }
 
     abstract float getPrice(City city);
+    @Override
     public void startRepair() {
         isRepairing = true;
     }
@@ -54,12 +55,10 @@ public abstract class Transport implements Repairable {
         isRepairing = false;
     }
 
-
     @Override
     public boolean isRepairing() {
         return isRepairing;
     }
-
 }
 
 

@@ -66,11 +66,8 @@ public class Logistics {
             }
             if (getPrice(city) < profit | getPrice(city) != 0) { //если стоимость выгодная
                 profit = vehicle;
-
             }
         }
-
-
         return profit;
  */
 

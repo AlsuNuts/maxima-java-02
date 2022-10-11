@@ -4,10 +4,11 @@ package org.example;
 public class App
 {
     public static void main(String[] args ) {
-        City kazan = new City ("Казань", 800, true, false);
+        City kazan = new City ("Казань", 800, true, true);
         Plane plane = new Plane ("Ан-124",125000, 865, 58.9f);
         plane.setRepairing(true);
         Ship ship = new Ship ("баржа", 250000, 35,12.7f);
+        ship.setRepairing(true);
         Truck truck = new Truck ("БЗНК", 3000, 90, 13.4f);
 
 

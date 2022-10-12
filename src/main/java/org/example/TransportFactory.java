@@ -16,4 +16,34 @@ package org.example;
  */
 
 public class TransportFactory {
+    public Transport getTransport(City city, int weight, int hours){
+        String planeName = "самолет";
+        float planeCostOfKm = 58.9f;
+        String shipName = "баржа";
+        float shipCostOfKm = 12.7f;
+        String truckName = "БЗНК"; //тем, кто любит гаражный панк-рок, рекомендую к прослушиванию Truckdrivers - Безумцы землю ногами крутят
+        float truckCostOfKm = 13.4f;
+
+
+        int transportSpeed = city.getDistanceKm()/hours; //скорость, необходимая лдля прибытия в срок
+        int transportWeight = (weight % 500 != 0) ? (int) Math.ceil(weight/500) * 500 : weight;
+        transportSpeed = (transportSpeed % 10 != 0) ? (int) Math.ceil(transportSpeed) * 10 : transportSpeed;
+
+        if (transportSpeed<40 & city.isOnWater()){
+            return new Ship(shipName, transportWeight, transportSpeed, shipCostOfKm);
+        }
+        if (transportSpeed>120 & city.hasAirport()){
+            return new Plane(planeName, transportWeight, transportSpeed, planeCostOfKm);
+        }
+        return new Truck( truckName, transportWeight, transportSpeed, truckCostOfKm);
+    }
 }
+
+/*
+        if (weight % 500 != 0){
+            weight = (int) Math.ceil(weight/500) * 500;
+        }
+        if (transportSpeed % 10 != 0) {
+            transportSpeed = (int) Math.ceil(transportSpeed) * 10;
+        }
+ */

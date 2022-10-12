@@ -14,9 +14,10 @@ public class App
 
 
         Logistics logistics = new Logistics(plane, ship, truck);
+        TransportFactory factory = new TransportFactory();
 
-        System.out.println(logistics.getShipping(kazan, 3000, 48));
-        System.out.println(plane.isRepairing());
+        System.out.println(factory.getTransport(kazan, 865, 24));
+
 
         //Transport car = new Transport ("легковая",200, 100, 15.3f); //12240
         //Transport plane = new Plane ("ту-204",200, 100, 58.9f); //47120

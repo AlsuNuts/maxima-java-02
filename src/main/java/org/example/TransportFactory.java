@@ -1,7 +1,7 @@
 package org.example;
 
 public class TransportFactory {
-    public Transport getTransport(City city, int weight, int hours){
+    public static Transport getTransport(City city, int weight, int hours){
         final String PLANE_NAME = "самолет";
         final float PLANE_COST_OF_KM = 58.9f;
         final String SHIP_NAME = "баржа";
@@ -9,14 +9,11 @@ public class TransportFactory {
         final String TRUCK_NAME = "БЗНК"; //тем, кто любит гаражный панк-рок, рекомендую к прослушиванию Truckdrivers - Безумцы землю ногами крутят
         final float TRUCK_COST_OF_KM= 13.4f;
 
-
-
         int roundedSpeed = city.getDistanceKm()/hours; //скорость, необходимая лдля прибытия в срок
-
         int transportWeight = (weight % 500 != 0) ? (int) Math.ceil(weight/500) * 500 + 500: weight;
-        System.out.println(transportWeight);
+        //System.out.println(transportWeight);
         int transportSpeed = (roundedSpeed % 10 != 0) ? (int) Math.ceil(roundedSpeed/10) * 10 + 10: roundedSpeed;
-        System.out.println(transportSpeed);
+        //System.out.println(transportSpeed);
         if (transportSpeed<40 && city.isOnWater()){
             return new Ship(SHIP_NAME, transportWeight, transportSpeed, SHIP_COST_OF_KM);
         }

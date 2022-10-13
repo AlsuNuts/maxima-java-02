@@ -12,13 +12,15 @@ public class TransportFactory {
 
 
         int roundedSpeed = city.getDistanceKm()/hours; //скорость, необходимая лдля прибытия в срок
-        int transportWeight = (weight % 500 != 0) ? (int) Math.ceil(weight/500) * 500 : weight;
-        int transportSpeed = (roundedSpeed % 10 != 0) ? (int) Math.ceil(roundedSpeed) * 10 : roundedSpeed;
 
-        if (transportSpeed<40 & city.isOnWater()){
+        int transportWeight = (weight % 500 != 0) ? (int) Math.ceil(weight/500) * 500 + 500: weight;
+        System.out.println(transportWeight);
+        int transportSpeed = (roundedSpeed % 10 != 0) ? (int) Math.ceil(roundedSpeed/10) * 10 + 10: roundedSpeed;
+        System.out.println(transportSpeed);
+        if (transportSpeed<40 && city.isOnWater()){
             return new Ship(SHIP_NAME, transportWeight, transportSpeed, SHIP_COST_OF_KM);
         }
-        if (transportSpeed>120 & city.hasAirport()){
+        if (transportSpeed>120 && city.hasAirport()){
             return new Plane(PLANE_NAME, transportWeight, transportSpeed, PLANE_COST_OF_KM);
         }
         return new Truck(TRUCK_NAME, transportWeight, transportSpeed, TRUCK_COST_OF_KM);

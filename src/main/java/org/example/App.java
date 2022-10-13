@@ -4,7 +4,7 @@ package org.example;
 public class App
 {
     public static void main(String[] args ) {
-        City kazan = new City ("Казань", 800, true, true);
+        City tokio = new City ("tokio", 9100, true, true);
         Plane plane = new Plane ("Ан-124",125000, 865, 58.9f);
         plane.setRepairing(true);
         Ship ship = new Ship ("баржа", 250000, 35,12.7f);
@@ -16,7 +16,8 @@ public class App
         Logistics logistics = new Logistics(plane, ship, truck);
         TransportFactory factory = new TransportFactory();
 
-        System.out.println(factory.getTransport(kazan, 865, 24));
+        System.out.println(factory.getTransport(tokio, 3500, 70));
+
 
 
         //Transport car = new Transport ("легковая",200, 100, 15.3f); //12240

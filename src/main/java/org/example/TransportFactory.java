@@ -10,9 +10,9 @@ public class TransportFactory {
         final float TRUCK_COST_OF_KM= 13.4f;
 
         int roundedSpeed = city.getDistanceKm()/hours; //скорость, необходимая лдля прибытия в срок
-        int transportWeight = (weight % 500 != 0) ? (int) Math.ceil(weight/500) * 500 + 500: weight;
+        int transportWeight = (weight % 500 != 0) ? weight/500 * 500 + 500: weight;
         //System.out.println(transportWeight);
-        int transportSpeed = (roundedSpeed % 10 != 0) ? (int) Math.ceil(roundedSpeed/10) * 10 + 10: roundedSpeed;
+        int transportSpeed = (roundedSpeed % 10 != 0) ? roundedSpeed/10 * 10 + 10: roundedSpeed;
         //System.out.println(transportSpeed);
         if (transportSpeed<40 && city.isOnWater()){
             return new Ship(SHIP_NAME, transportWeight, transportSpeed, SHIP_COST_OF_KM);

@@ -30,7 +30,7 @@ public class TransportFactoryTest {
         Assert.assertEquals(19000, TransportFactory.getTransport(barnaul, 18745, 350).getCapacity());
     }
     @Test
-    public void shouldBeTransportSpeed(){
+    public void shouldBeTransportRoundingSpeed(){
         Assert.assertEquals(10, TransportFactory.getTransport(kazan, 2199, 350).getSpeed());
         Assert.assertEquals(70, TransportFactory.getTransport(kazan, 2199, 12).getSpeed());
         Assert.assertEquals(400, TransportFactory.getTransport(kazan, 2199, 2).getSpeed());
@@ -44,7 +44,7 @@ public class TransportFactoryTest {
         Assert.assertEquals(Truck.class, TransportFactory.getTransport(syzran, 2199,24).getClass());
     }
     @Test (expected = ArithmeticException.class)
-    public void shouldBeZeroHours(){
+    public void shouldBeExceptionZeroHours(){
         Assert.assertEquals(0, TransportFactory.getTransport(syzran, 2199,0).getCapacity());
     }
 

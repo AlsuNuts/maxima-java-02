@@ -17,7 +17,7 @@ public class TransportFactoryTest {
         Assert.assertEquals("грузовик", TransportFactory.getTransport(syzran, 2199,24).getName());
     }
     @Test
-    public void shouldBeTransportNameTestSpeedAndIsWaterOrHasAirport(){ //если есть ограничение скорости и есть вода/аэропорт
+    public void shouldBeTransportNameIfSpeedLimitAndIsWaterOrHasAirport(){ //если есть ограничение скорости и есть вода/аэропорт
         Assert.assertEquals("баржа", TransportFactory.getTransport(kazan, 2199, 350).getName());
         Assert.assertEquals("самолет", TransportFactory.getTransport(kazan, 2199, 2).getName());
         Assert.assertEquals("грузовик", TransportFactory.getTransport(kazan, 2199, 12).getName());

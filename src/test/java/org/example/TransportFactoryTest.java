@@ -43,6 +43,11 @@ public class TransportFactoryTest {
         Assert.assertEquals(Plane.class, TransportFactory.getTransport(barnaul, 2199, 24).getClass());
         Assert.assertEquals(Truck.class, TransportFactory.getTransport(syzran, 2199,24).getClass());
     }
+    @Test (expected = ArithmeticException.class)
+    public void shouldBeZeroHours(){
+        Assert.assertEquals(0, TransportFactory.getTransport(syzran, 2199,0).getCapacity());
+    }
+
 }
 /*
         TransportFactory factory = new TransportFactory();

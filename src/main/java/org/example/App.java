@@ -16,7 +16,7 @@ public class App
         Logistics logistics = new Logistics(plane, ship, truck);
         TransportFactory factory = new TransportFactory();
 
-        System.out.println(factory.getTransport(tokio, 3500, 70));
+        System.out.println(factory.getTransport(tokio, 2199, 350).getName());
 
 
 

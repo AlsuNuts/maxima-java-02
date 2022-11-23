@@ -6,14 +6,14 @@ public class TransportFactory {
         final float PLANE_COST_OF_KM = 58.9f;
         final String SHIP_NAME = "баржа";
         final float SHIP_COST_OF_KM = 12.7f;
-        final String TRUCK_NAME = "БЗНК"; //тем, кто любит гаражный панк-рок, рекомендую к прослушиванию Truckdrivers - Безумцы землю ногами крутят
+        final String TRUCK_NAME = "грузовик";
         final float TRUCK_COST_OF_KM= 13.4f;
 
-        int roundedSpeed = city.getDistanceKm()/hours; //скорость, необходимая лдля прибытия в срок
-        int transportWeight = (weight % 500 != 0) ? weight/500 * 500 + 500: weight;
+        int roundedSpeed = city.getDistanceKm()/hours;
+        int transportWeight = (weight % 500 != 0) ? weight/500 * 500 + 500 : weight;
         //System.out.println(transportWeight);
-        int transportSpeed = (roundedSpeed % 10 != 0) ? roundedSpeed/10 * 10 + 10: roundedSpeed;
-        //System.out.println(transportSpeed);
+        int transportSpeed = (roundedSpeed % 10 != 0) ? roundedSpeed/10 * 10 + 10 : roundedSpeed;
+        System.out.println(transportSpeed);
         if (transportSpeed<40 && city.isOnWater()){
             return new Ship(SHIP_NAME, transportWeight, transportSpeed, SHIP_COST_OF_KM);
         }
@@ -24,11 +24,4 @@ public class TransportFactory {
     }
 }
 
-/*
-        if (weight % 500 != 0){
-            weight = (int) Math.ceil(weight/500) * 500;
-        }
-        if (transportSpeed % 10 != 0) {
-            transportSpeed = (int) Math.ceil(transportSpeed) * 10;
-        }
- */
+

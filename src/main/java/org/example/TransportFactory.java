@@ -1,5 +1,9 @@
 package org.example;
 
+import org.springframework.stereotype.Component;
+
+//Классы Logistics и TransportFactory модуля сделать бинами, использовать разные способы их конфигурирования
+@Component
 public class TransportFactory {
     public static Transport getTransport(City city, int weight, int hours){
         final String PLANE_NAME = "самолет";

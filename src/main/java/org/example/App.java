@@ -1,23 +1,30 @@
 package org.example;
 
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 public class App
 {
     public static void main(String[] args ) {
-        City tokio = new City ("tokio", 9100, true, true);
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        Logistics logistics = context.getBean(Logistics.class);
+        TransportFactory transportFactory = context.getBean(TransportFactory.class);
+        System.out.println(logistics);
+        System.out.println(transportFactory);
+
+        /*City tokio = new City ("tokio", 9100, true, true);
         Plane plane = new Plane ("Ан-124",125000, 865, 58.9f);
         plane.setRepairing(true);
         Ship ship = new Ship ("баржа", 250000, 35,12.7f);
         ship.setRepairing(true);
         Truck truck = new Truck ("БЗНК", 3000, 90, 13.4f);
 
-
-
         Logistics logistics = new Logistics(plane, ship, truck);
         TransportFactory factory = new TransportFactory();
 
         System.out.println(factory.getTransport(tokio, 2199, 350).getName());
-
+         */
 
 
         //Transport car = new Transport ("легковая",200, 100, 15.3f); //12240

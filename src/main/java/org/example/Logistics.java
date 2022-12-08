@@ -5,10 +5,7 @@ import org.springframework.stereotype.Component;
 //Классы Logistics и TransportFactory модуля сделать бинами, использовать разные способы их конфигурирования
 @Component
 public class Logistics {
-
-
     private Transport [] vehicles;
-
 
     public Logistics(Transport ... vehicles) {
 
